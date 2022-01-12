@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1092058775796",
+    "firebase_url": "https://the-shop-e0fa5-default-rtdb.firebaseio.com",
+    "project_id": "the-shop-e0fa5",
+    "storage_bucket": "the-shop-e0fa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092058775796:android:eb614dea2af4398ee21ea1",
+        "android_client_info": {
+          "package_name": "com.example.theshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092058775796-3f7qal3r5k73m1735jejlal8462e3kmr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.theshop",
+            "certificate_hash": "1661810748d49d403d548622dc1deb8f60c15eb9"
+          }
+        },
+        {
+          "client_id": "1092058775796-u3i2vfoctual10ufua9onc9b4vebvo66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR3FVosaqkzQ4y0YmeJQG8WykaFD8N_GI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092058775796-u3i2vfoctual10ufua9onc9b4vebvo66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
