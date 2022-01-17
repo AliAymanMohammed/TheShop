@@ -63,7 +63,6 @@ Widget buildDrawer(
               style: TextStyle(fontSize: 20),
             ),
             onTap: () {
-              Navigator.of(context).pop();
               Provider.of<Auth>(context, listen: false).logOut();
             },
           ),
