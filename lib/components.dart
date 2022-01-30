@@ -6,6 +6,7 @@ import 'package:theshop/Providers/authentication.dart';
 import '../Screens/products_overview_screen.dart';
 import '../Screens/user_products_screen.dart';
 import '../Screens/orders_screen.dart';
+import 'Screens/auth_screen.dart';
 
 Widget buildDrawer(
         {@required String dTitle,
@@ -63,7 +64,9 @@ Widget buildDrawer(
               style: TextStyle(fontSize: 20),
             ),
             onTap: () {
-              Provider.of<Auth>(context, listen: false).logOut();
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed(AuthScreen.routeName);
+              Provider.of<Auth>(context ,listen: false).logOut();
             },
           ),
         ],

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-import 'package:theshop/Models/products.dart';
 import 'package:theshop/Providers/orders.dart';
-import 'package:theshop/Screens/orders_screen.dart';
+import 'package:theshop/notificationservice.dart';
+import 'package:timezone/data/latest.dart' as tz;
+
 
 import '../Providers/cart.dart';
+import 'orders_screen.dart';
 
 class CartScreen extends StatelessWidget {
   static const String routeName = '/cart-screen';
@@ -142,6 +144,11 @@ class OrderButton extends StatefulWidget {
 }
 
 class _OrderButtonState extends State<OrderButton> {
+  @override
+  void initState() {
+    tz.initializeTimeZones();
+    super.initState();
+  }
   var isLoading = false;
   @override
   Widget build(BuildContext context) {
@@ -150,7 +157,12 @@ class _OrderButtonState extends State<OrderButton> {
         setState(() {
           isLoading = true;
         });
-         await Provider.of<Orders>(context , listen: false).addOrder(cartProducts: widget.cartListener.items.values.toList(), total: widget.cartListener.totalAmount);
+         await Provider.of<Orders>(context , listen: false).addOrder(cartProducts: widget.cartListener.items.values.toList(), total: widget.cartListener.totalAmount).then((value){
+           NotificationService().showNotification(0, 'Order Info :','Your Order : ${widget.cartListener.items.values.toList().map((e) => e.cTitle)} '
+               'has been placed \n  Quantity: ${widget.cartListener.items.values.toList().map((e) => e.cQuantity)}  '
+               'Price : ${widget.cartListener.items.values.toList().map((e) => e.cPrice)} EGP ', 1)
+               .then((value) => Future.delayed(Duration(seconds: 7))).then((value) => Navigator.of(context).pushNamed(OrdersScreen.routeName));
+         });
          setState(() {
            isLoading = false;
          });

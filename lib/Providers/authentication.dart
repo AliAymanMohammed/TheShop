@@ -30,7 +30,7 @@ class Auth with ChangeNotifier{
   Future<void> signUp({
     @required String email,
     @required String password,
-}) async{
+  }) async{
     final url = Uri.parse('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAbeCT6gDYUZlXbpUustPwaiigz2rPj3XQ');
     try{
       final response = await http.post(url , body: json.encode({
@@ -62,7 +62,7 @@ class Auth with ChangeNotifier{
   Future<void> signIn({
     @required String email,
     @required String password,
-})async{
+  })async{
     final url = Uri.parse('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAbeCT6gDYUZlXbpUustPwaiigz2rPj3XQ');
     try{
       final response = await http.post(url , body: json.encode({
@@ -89,27 +89,28 @@ class Auth with ChangeNotifier{
     }catch(error){
       throw error;
     }
-}
+  }
 
 
-Future <bool> tryLogin()async{
+  Future <bool> tryLogin()async{
     final prefs = await SharedPreferences.getInstance();
     if(!prefs.containsKey('userData')){
       return false;
     }
     final extractedUserData = json.decode(prefs.getString('userData'))as Map<String , dynamic>;
     final expiryDAte = DateTime.parse(extractedUserData['expiryDate']);
+
     if(expiryDAte.isBefore(DateTime.now())){
       return false;
     }
-   token = extractedUserData['token'];
+    token = extractedUserData['token'];
     userId = extractedUserData['userId'];
     expiryDate = extractedUserData['expiryDate'];
     notifyListeners();
     autoLOgOut();
     return true;
-}
-void logOut(){
+  }
+  void logOut(){
     token = null;
     expiryDate = null;
     userId = null;
@@ -118,13 +119,13 @@ void logOut(){
       authTimer = null;
     }
     notifyListeners();
-}
+  }
 
-void autoLOgOut(){
+  void autoLOgOut(){
     if(authTimer != null){
       authTimer.cancel();
     }
     final logoutTime = expiryDate.difference(DateTime.now()).inSeconds;
     authTimer = Timer(Duration(seconds: logoutTime,), logOut);
-}
+  }
 }

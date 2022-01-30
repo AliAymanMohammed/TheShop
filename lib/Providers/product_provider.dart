@@ -62,7 +62,7 @@ class ProductProvider with ChangeNotifier {
     return items.firstWhere((product) => product.id == id);
   }
 
-  Future <void> addProduct(Product product) async{
+  Future <void> addProduct(Product product ) async{
     final url = Uri.parse('https://the-shop-9a31e-default-rtdb.firebaseio.com/products.json?auth=$token');
     try{
       final response =  await http.post(url , body:json.encode({
@@ -84,6 +84,7 @@ class ProductProvider with ChangeNotifier {
     }catch(error){
       throw error;
     }
+
   }
 
   Future <void> getProducts({bool filterBy = false})async{

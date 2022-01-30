@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:theshop/notificationservice.dart';
 import 'package:theshop/shared_pref.dart';
 
 import '../Screens/waiting_screen.dart';
@@ -18,6 +19,7 @@ import './Providers/authentication.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  NotificationService().initNotification();
   await CacheHelper.init();
   runApp(MyApp());
 }
@@ -55,7 +57,7 @@ class MyApp extends StatelessWidget {
             future: authListener.tryLogin(),
             builder:(context , snapShot) => snapShot.connectionState == ConnectionState.waiting ? WaitingScreen():AuthScreen(),),
           routes: {
-            // '/' : (context) => AuthScreen(),
+            AuthScreen.routeName: (context) => AuthScreen(),
             ProductsOverViewScreen.routeName: (context) => ProductsOverViewScreen(),
             ProductDetailScreen.routeName: (context) => ProductDetailScreen(),
             CartScreen.routeName: (context) => CartScreen(),

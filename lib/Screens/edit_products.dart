@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import '../Models/products.dart';
 import '../Providers/product_provider.dart';
@@ -17,6 +20,15 @@ class _EditProductsScreenState extends State<EditProductsScreen> {
   final formKey = GlobalKey<FormState>();
   var editedProduct = Product(id: null, title: '', description: '', price: 0, imageUrl: '');
 
+// File image;
+// final picker = ImagePicker();
+//
+// void pickAnImage()async{
+//   var pickedImage = await picker.getImage(source: ImageSource.gallery);
+//   setState(() {
+//     image = File(pickedImage.path);
+//   });
+// }
 
   var isLoading = false;
   var ifInit = true;
@@ -257,6 +269,21 @@ class _EditProductsScreenState extends State<EditProductsScreen> {
                   ),
                 ],
               ),
+              // const SizedBox(height: 20,),
+              //
+              // Container(
+              //   height: 130,
+              //   width:200,
+              //   decoration: BoxDecoration(
+              //     border: Border.all(color: Colors.grey),
+              //   ),
+              //   child: Image(
+              //     image: image != null ? FileImage(image) : AssetImage('/assets'),
+              //   ),
+              // ),
+              // FlatButton.icon(onPressed: (){
+              //   pickAnImage();
+              // }, icon: Icon(Icons.image), label: Text('Add Photo')),
             ],
           ),
           key: formKey,
