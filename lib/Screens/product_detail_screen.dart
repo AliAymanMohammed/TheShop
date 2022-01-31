@@ -29,11 +29,14 @@ class ProductDetailScreen extends StatelessWidget {
             Text('${productItemsProvider.price} EGP' , style:  TextStyle(fontSize: 20 ,color: Colors.brown.withOpacity(0.8)),),
             const SizedBox(height: 10,),
             SizedBox(
-                child: Text(
-                  productItemsProvider.description,
-                  style: const TextStyle(fontSize: 20),
-                  softWrap: true,
-                  textAlign: TextAlign.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    productItemsProvider.description,
+                    style: const TextStyle(fontSize: 20),
+                    softWrap: true,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               width: double.infinity,
             ),
