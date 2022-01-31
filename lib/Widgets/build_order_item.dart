@@ -42,26 +42,31 @@ class _BuildOrderItemState extends State<BuildOrderItem> {
             // if (isExpanded)
               AnimatedContainer(
                 duration: Duration(milliseconds: 500),
-                height: isExpanded ? min(widget.orders.oProducts.length * 20.0 + 18.0, 320.0) : 0,
+                height: isExpanded ? min(widget.orders.oProducts.length * 20.0 , 320.0) : 0,
                 child: Container(
                   child: ListView(
                     children: [
                       ...(widget.orders.oProducts
                           .map(
-                            (product) => Row(
+                            (product) => Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                               Row(
+                                 children: [
+                                   Text(
+                                     '${product.cTitle} :',
+                                     style: const TextStyle(
+                                         fontSize: 18, fontWeight: FontWeight.bold),
+                                   ),
+                                   Text(
+                                     ' ${product.cQuantity.toString()} , ${product.cPrice.toString()} EGP',
+                                     style: const TextStyle(
+                                         fontSize: 18, fontWeight: FontWeight.bold),
+                                   ),
+                                 ],
+                               ),
                                 Text(
-                                  '${product.cTitle} :',
-                                  style: const TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  ' ${product.cQuantity.toString()} , ${product.cPrice.toString()} EGP',
-                                  style: const TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  ' Total :${product.cQuantity * product.cPrice}',
+                                  'Total :${product.cQuantity * product.cPrice}',
                                   style: const TextStyle(fontSize: 20),
                                 ),
                               ],
