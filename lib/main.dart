@@ -52,10 +52,7 @@ class MyApp extends StatelessWidget {
               canvasColor: HexColor('#f2bc94'),
               accentColor: Colors.deepOrange,
               fontFamily: 'Lato'),
-          home: authListener.isAuth ? ProductsOverViewScreen() :
-          FutureBuilder(
-            future: authListener.tryLogin(),
-            builder:(context , snapShot) => snapShot.connectionState == ConnectionState.waiting ? WaitingScreen():AuthScreen(),),
+          home: authListener.isAuth ? ProductsOverViewScreen() : AuthScreen(),
           routes: {
             AuthScreen.routeName: (context) => AuthScreen(),
             ProductsOverViewScreen.routeName: (context) => ProductsOverViewScreen(),

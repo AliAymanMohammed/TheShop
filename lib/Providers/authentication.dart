@@ -114,10 +114,10 @@ class Auth with ChangeNotifier{
     token = null;
     expiryDate = null;
     userId = null;
-    if(authTimer != null){
-      authTimer.cancel();
-      authTimer = null;
-    }
+    // if(authTimer != null){
+    //   authTimer.cancel();
+    //   authTimer = null;
+    // }
     notifyListeners();
   }
 

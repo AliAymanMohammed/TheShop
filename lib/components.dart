@@ -65,7 +65,6 @@ Widget buildDrawer(
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).pushNamed(AuthScreen.routeName);
               Provider.of<Auth>(context ,listen: false).logOut();
             },
           ),
