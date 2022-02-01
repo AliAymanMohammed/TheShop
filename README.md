@@ -2,15 +2,20 @@
 
 A Simple Shopping Application
 
-## Getting Started
+Introduction :
+- An Online Shopping Application. You can Add , Edit , Delete and Order Products and Get Notified on Order.
 
-This project is a starting point for a Flutter application.
+About : 
+- You can Shop through the products in the application also you can add your own products edit and delete them.
+- Get Notified on order.
 
-A few resources to get you started if this is your first Flutter project:
+Dependencies: 
+- Provider
+-  intl 
+-   REST API’s( FireBase + HTTP)
+-   Shared Preferences
+-   Image Picker
+-   Flutter Launcher Icon and Flutter Local Notification
+-    Animations.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Installation : you can download the project from here => https://github.com/AliAymanMohammed/TheShop, then implement it in your IDE(Android Studio or VSCode) for Example.
