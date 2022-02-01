@@ -65,6 +65,7 @@ Widget buildDrawer(
             ),
             onTap: () {
               Navigator.of(context).pop();
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AuthScreen()));
               Provider.of<Auth>(context ,listen: false).logOut();
             },
           ),

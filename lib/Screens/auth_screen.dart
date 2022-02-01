@@ -145,10 +145,11 @@ class _AuthCardState extends State<AuthCard> with SingleTickerProviderStateMixin
     });
     try{
       if (_authMode == AuthMode.Login) {
-        await Provider.of<Auth>(context , listen: false).signIn(email: _authData['email'], password: _authData['password']);
-            // .then((_) => Navigator.of(context).pushNamed(ProductsOverViewScreen.routeName));
+        await Provider.of<Auth>(context , listen: false).signIn(email: _authData['email'], password: _authData['password'])
+             .then((_) => Navigator.of(context).pushNamed(ProductsOverViewScreen.routeName));
       } else {
-        await Provider.of<Auth>(context , listen: false).signUp(email: _authData['email'], password: _authData['password']);
+        await Provider.of<Auth>(context , listen: false).signUp(email: _authData['email'], password: _authData['password'])
+            .then((_) => Navigator.of(context).pushNamed(ProductsOverViewScreen.routeName));
       }
     } on HttpException catch(error){
       var errorMessage = 'Authentication Failed';
